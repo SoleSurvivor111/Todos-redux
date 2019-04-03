@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FiltersLink from 'containers/FiltersLink';
-import { VisibilityFilters } from 'actions'
+import { VisibilityFilters } from 'actions/footer'
 import style from 'Components/Footer/Filters/Filters.module.scss';
 
 const Filters = () => (

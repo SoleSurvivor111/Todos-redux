@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { setVisibilityFilter } from 'actions';
+import { setVisibilityFilter } from 'actions/footer';
 import Link from 'Components/Footer/Filters/Link';
 
-const mapStateToprops = (state, ownProps) => ({
-  active: ownProps.filter === state.VisibilityFilter,
+const mapStateToProps = (state, ownProps) => ({
+  active: ownProps.filter === state.visibilityFilter,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -11,6 +11,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 export default connect(
-  mapStateToprops,
+  mapStateToProps,
   mapDispatchToProps,
 )(Link);

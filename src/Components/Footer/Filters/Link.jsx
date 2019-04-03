@@ -6,8 +6,7 @@ const Link = ({ children, active, setFilter }) => (
   <li className={style.li} key={33}>
     <a
       href="#/"
-      className={`all ${active ? style.highlight : ''}`}
-      disabled={active}
+      className={active ? style.highlight : ''}
       onMouseDown={setFilter}
     >
       {children}
