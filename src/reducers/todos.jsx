@@ -36,6 +36,8 @@ const todos = (state = [], action) => {
         }
         return task;
       });
+    case 'CLEAR_COMPLETED':
+      return state.filter(task => !task.checked);
     default:
       return state;
   }
