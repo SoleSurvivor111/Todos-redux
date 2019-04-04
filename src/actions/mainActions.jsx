@@ -12,3 +12,14 @@ export const addEditInput = (id, text) => ({
   id,
   text,
 });
+
+export const deleteEditInput = id => ({
+  type: 'DELETE_EDIT_INPUT',
+  id,
+});
+
+export const changeValue = (id, text) => ({
+  type: 'CHANGE_VALUE',
+  id,
+  text,
+});

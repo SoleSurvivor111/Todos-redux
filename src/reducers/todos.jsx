@@ -23,7 +23,19 @@ const todos = (state = [], action) => {
         checked,
       }));
     }
-
+    case 'CHANGE_VALUE':
+      if (action.text === '') {
+        return state.filter(task => task.id !== action.id);
+      }
+      return state.map((task) => {
+        if (task.id === action.id) {
+          return {
+            ...task,
+            text: action.text,
+          };
+        }
+        return task;
+      });
     default:
       return state;
   }

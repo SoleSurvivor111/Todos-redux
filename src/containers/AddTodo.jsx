@@ -3,8 +3,12 @@ import { connect } from 'react-redux';
 import style from 'containers/Task.module.scss';
 import * as actions from 'actions/mainActions';
 
+const ENTER_KEY = 13;
+const ESCAPE_KEY = 27;
+
 const AddTodo = ({
-  task, toggleTodo, deleteTodo, addEditInput, editButtonStates,
+  task, toggleTodo, deleteTodo, addEditInput, editButtonStates, deleteEditInput,
+  changeValue,
 }) => {
   const editButton = editButtonStates.id === task.id
     && (
@@ -12,8 +16,21 @@ const AddTodo = ({
         type="textarea"
         className={style.view__edit}
         autoFocus
-        // onBlur={e => onRemoveEditInput(task.key, e)}
-        // onKeyDown={e => onKeysRemoveEditInput(task.key, e)}
+        onBlur={() => deleteEditInput(task.id)}
+        onKeyDown={(e) => {
+          if (e.which === ENTER_KEY
+            || e.keyCode === ENTER_KEY) {
+            if (e.target.value.trim() === '') {
+              deleteTodo(task.id);
+              return;
+            }
+            changeValue(task.id, e.target.value);
+            deleteEditInput(task.id);
+          } else if (e.which === ESCAPE_KEY) {
+            deleteEditInput(task.id);
+          }
+        }
+      }
         // onChange={onChange}
         defaultValue={task.text}
       />
