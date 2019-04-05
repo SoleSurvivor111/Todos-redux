@@ -1,4 +1,4 @@
-import { VisibilityFilters } from 'actions/footer'
+import { VisibilityFilters } from 'actions/footer';
 
 const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
   switch (action.type) {

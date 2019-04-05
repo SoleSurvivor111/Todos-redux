@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Filters from 'Components/Footer/Filters/Filters';
 import { connect } from 'react-redux';
 import { clearCompleted } from 'actions/footer';
 import style from 'Components/Footer/Footer.module.scss';
 
-
-const Footer = ({ todos, clear }) => {
+const Footer = ({ todos, clearList }) => {
   const all = todos.length;
   const active = todos.filter(task => !task.checked).length;
   const theNumberOfActiveTasks = active === 1
@@ -17,7 +16,7 @@ const Footer = ({ todos, clear }) => {
     <button
       type="button"
       className={style['footer__clear-completed']}
-      onClick={() => clear()}
+      onClick={() => clearList()}
     >
     Clear completed
     </button>
@@ -33,7 +32,33 @@ const Footer = ({ todos, clear }) => {
   );
   return footer;
 };
+
 const mapDispatchToProps = dispatch => ({
-  clear: () => dispatch(clearCompleted()),
+  clearList: () => dispatch(clearCompleted()),
 });
-export default connect(state => ({ todos: state.todos }), mapDispatchToProps)(Footer);
+const mapStateToProps = state => ({
+  todos: state.todos,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+
+Footer.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.number,
+      checked: PropTypes.bool,
+    }),
+  ),
+  clearList: PropTypes.func.isRequired,
+};
+
+Footer.defaultProps = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.number,
+      checked: PropTypes.bool,
+    }),
+  ),
+};

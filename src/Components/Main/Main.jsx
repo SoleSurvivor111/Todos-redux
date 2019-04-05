@@ -1,6 +1,5 @@
 import React from 'react';
 import ListTask from 'containers/AddTodo';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const Main = ({ todos }) => (
@@ -18,5 +17,21 @@ const Main = ({ todos }) => (
 export default Main;
 
 Main.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.number,
+      checked: PropTypes.bool,
+    }),
+  ),
+};
 
+Main.defaultProps = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.number,
+      checked: PropTypes.bool,
+    }),
+  ),
 };

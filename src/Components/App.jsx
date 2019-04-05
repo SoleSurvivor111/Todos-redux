@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from 'Components/Header/Header';
-import  VisibleTodoList from 'containers/VisibleTodoList';
+import VisibleTodoList from 'containers/VisibleTodoList';
 import Footer from 'Components/Footer/Footer';
 import style from 'Components/App.module.scss';
 

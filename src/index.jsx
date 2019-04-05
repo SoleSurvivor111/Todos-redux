@@ -1,15 +1,21 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
 import App from 'Components/App';
 import rootRecucer from 'reducers';
 import 'style.scss';
+import { loadState, saveState } from 'localStoreage';
 
-const store = createStore(rootRecucer, composeWithDevTools(applyMiddleware(thunk)));
+const persistedState = loadState();
+const store = createStore(rootRecucer, persistedState, composeWithDevTools());
 
+store.subscribe(() => {
+  saveState({
+    todos: store.getState().todos,
+  });
+});
 render(
   <Provider store={store}>
     <App />

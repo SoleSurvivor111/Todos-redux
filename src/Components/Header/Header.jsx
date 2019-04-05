@@ -30,9 +30,8 @@ const Header = ({ toggleAll, addTodo, todos }) => {
       <input
         className={style['header__new-todo']}
         placeholder="What needs to be done?"
-        defaultValue="sdfsdf"
+        defaultValue=""
         autoFocus
-        // onChange={onInput}
         onKeyDown={(e) => {
           const enterKey = 13;
           if ((e.target.value.trim() !== '')
@@ -53,5 +52,23 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, actions)(Header);
 
 Header.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.number,
+      checked: PropTypes.bool,
+    }),
+  ),
+  toggleAll: PropTypes.func.isRequired,
+  addTodo: PropTypes.func.isRequired,
+};
 
+Header.defaultProps = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.number,
+      checked: PropTypes.bool,
+    }),
+  ),
 };

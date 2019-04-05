@@ -14,3 +14,9 @@ const Link = ({ children, active, setFilter }) => (
   </li>
 );
 export default Link;
+
+Link.propTypes = {
+  children: PropTypes.string.isRequired,
+  active: PropTypes.bool.isRequired,
+  setFilter: PropTypes.func.isRequired,
+};
