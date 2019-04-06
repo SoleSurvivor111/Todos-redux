@@ -46,7 +46,7 @@ Footer.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
-      id: PropTypes.number,
+      id: PropTypes.string,
       checked: PropTypes.bool,
     }),
   ),
@@ -57,7 +57,7 @@ Footer.defaultProps = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
-      id: PropTypes.number,
+      id: PropTypes.string,
       checked: PropTypes.bool,
     }),
   ),

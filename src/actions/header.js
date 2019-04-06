@@ -1,7 +1,9 @@
+import { v4 } from 'node-uuid';
+
 export const addTodo = text => ({
   type: 'ADD_TODO',
   text,
-  id: Date.now(),
+  id: v4(),
   checked: false,
 });
 
