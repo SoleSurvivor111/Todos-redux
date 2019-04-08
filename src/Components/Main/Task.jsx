@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'containers/Task.module.scss';
-import { blurDelEditInput, keysDelEditInput } from 'containers/AddTodo';
-
 
 const Task = ({
   task, toggleTodo, deleteTodo, addEditInput, editButtonStates, deleteEditInput,
-  changeValue,
+  changeValue, blurDelEditInput, keysDelEditInput,
 }) => {
   const currentTask = editButtonStates.id === task.id;
   const checkboxClass = currentTask
@@ -56,11 +54,47 @@ const Task = ({
 export default Task;
 
 Task.propTypes = {
-  task: PropTypes.objectOf.isRequired,
-  toggleTodo: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired,
-  addEditInput: PropTypes.func.isRequired,
-  editButtonStates: PropTypes.func.isRequired,
-  deleteEditInput: PropTypes.func.isRequired,
-  changeValue: PropTypes.func.isRequired,
+  task: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+      checked: PropTypes.bool,
+    }),
+  ),
+  toggleTodo: PropTypes.func,
+  blurDelEditInput: PropTypes.func,
+  keysDelEditInput: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  addEditInput: PropTypes.func,
+  editButtonStates: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ),
+  deleteEditInput: PropTypes.func,
+  changeValue: PropTypes.func,
+};
+
+Task.defaultProps = {
+  task: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+      checked: PropTypes.bool,
+    }),
+  ),
+  toggleTodo: PropTypes.func,
+  blurDelEditInput: PropTypes.func,
+  keysDelEditInput: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  addEditInput: PropTypes.func,
+  editButtonStates: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ),
+  deleteEditInput: PropTypes.func,
+  changeValue: PropTypes.func,
 };

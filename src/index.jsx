@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import throttle from 'lodash/throttle';
-import App from 'Components/App';
+import AppContainer from 'containers/AppContainer';
 import rootRecucer from 'reducers';
 import 'style.scss';
 import { loadState, saveState } from 'localStoreage';
@@ -19,7 +19,7 @@ store.subscribe(throttle(() => {
 }, 1000));
 render(
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById('root'),
 );

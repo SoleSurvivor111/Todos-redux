@@ -1,14 +1,25 @@
 import React from 'react';
-import ListTask from 'containers/AddTodo';
+import ListTask from 'Components/Main/Task';
 import PropTypes from 'prop-types';
 
-const Main = ({ todos }) => (
+const Main = ({
+  visibleTodoList, editButtonStates, blurDelEditInput, keysDelEditInput, toggleTodo,
+  deleteTodo, addEditInput, deleteEditInput, changeValue,
+}) => (
   <section className="main">
     <ul className="todo-list">
-      {todos.map(task => (
+      {visibleTodoList.map(task => (
         <ListTask
           key={task.id}
           task={task}
+          editButtonStates={editButtonStates}
+          blurDelEditInput={blurDelEditInput}
+          keysDelEditInput={keysDelEditInput}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}
+          addEditInput={addEditInput}
+          deleteEditInput={deleteEditInput}
+          changeValue={changeValue}
         />
       ))}
     </ul>
@@ -17,7 +28,20 @@ const Main = ({ todos }) => (
 export default Main;
 
 Main.propTypes = {
-  todos: PropTypes.arrayOf(
+  editButtonStates: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ),
+  blurDelEditInput: PropTypes.func,
+  keysDelEditInput: PropTypes.func,
+  toggleTodo: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  deleteEditInput: PropTypes.func,
+  changeValue: PropTypes.func,
+  addEditInput: PropTypes.func,
+  visibleTodoList: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
       id: PropTypes.string,
@@ -27,7 +51,20 @@ Main.propTypes = {
 };
 
 Main.defaultProps = {
-  todos: PropTypes.arrayOf(
+  editButtonStates: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ),
+  blurDelEditInput: PropTypes.func,
+  keysDelEditInput: PropTypes.func,
+  toggleTodo: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  deleteEditInput: PropTypes.func,
+  addEditInput: PropTypes.func,
+  changeValue: PropTypes.func,
+  visibleTodoList: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
       id: PropTypes.string,

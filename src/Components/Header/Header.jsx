@@ -1,29 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as actions from 'actions/header';
 import style from 'Components/Header/Header.module.scss';
 
-const addTask = (e, addTodo) => {
-  const enterKey = 13;
-  if ((e.target.value.trim() !== '')
-  && (e.which === enterKey || e.keyCode === enterKey)) {
-    addTodo(e.target.value);
-    e.target.value = '';
-  }
-};
-
-const Header = ({ toggleAll, addTodo, todos }) => {
-  const completed = todos.filter(todo => todo.checked);
-  const stateBtn = todos.length === completed.length;
-  const toggleAllBtn = todos.length !== 0
+const Header = ({
+  toggleAll, addTodo, addTask, all, completed,
+}) => {
+  const toggleAllBtn = all !== 0
         && (
           <div>
             <input
               id="toggle-all"
               className={style['header__toggle-all']}
               type="checkbox"
-              checked={stateBtn}
+              checked={all === completed}
               onMouseDown={() => toggleAll()}
             />
             <div
@@ -46,30 +35,12 @@ const Header = ({ toggleAll, addTodo, todos }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  todos: state.todos,
-});
-
-export default connect(mapStateToProps, actions)(Header);
+export default Header;
 
 Header.propTypes = {
-  todos: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-      checked: PropTypes.bool,
-    }),
-  ),
+  addTask: PropTypes.func.isRequired,
   toggleAll: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
-};
-
-Header.defaultProps = {
-  todos: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-      checked: PropTypes.bool,
-    }),
-  ),
+  all: PropTypes.number.isRequired,
+  completed: PropTypes.number.isRequired,
 };

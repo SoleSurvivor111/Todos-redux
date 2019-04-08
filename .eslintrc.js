@@ -19,6 +19,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+      "jsx-a11y/no-autofocus": false
     },
   "settings": {
     "import/resolver": {
