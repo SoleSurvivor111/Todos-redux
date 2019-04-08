@@ -19,5 +19,12 @@ module.exports = {
         "react"
     ],
     "rules": {
+    },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
     }
+  }
 };

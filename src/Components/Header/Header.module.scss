@@ -6,11 +6,13 @@
   &__toggle-all {
     border: 0;
     bottom: 100%;
-    height: 1px;
+    height: 60px;
     opacity: 0;
+    left: 0;
     position: absolute;
+    top: 0;
     right: 100%;
-    width: 1px;
+    width: 45px;
 
     &:checked ~ .header__label::before {
       color: #4d4d4d;
@@ -22,8 +24,7 @@
     position: absolute;
     top: 0;
     width: 45px;
-
-
+    z-index: -1;
 
     &::before {
       color: #e6e6e6;
@@ -32,6 +33,9 @@
       font-size: 22px;
       padding: 10px 25px;
       transform: rotate(90deg) translate(10px, 10px);
+      &:checked {
+        color: #4d4d4d;
+      }
     }
   }
 

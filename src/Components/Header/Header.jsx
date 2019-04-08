@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import * as actions from 'actions/header';
 import style from 'Components/Header/Header.module.scss';
 
+const addTask = (e, addTodo) => {
+  const enterKey = 13;
+  if ((e.target.value.trim() !== '')
+  && (e.which === enterKey || e.keyCode === enterKey)) {
+    addTodo(e.target.value);
+    e.target.value = '';
+  }
+};
+
 const Header = ({ toggleAll, addTodo, todos }) => {
   const completed = todos.filter(todo => todo.checked);
   const stateBtn = todos.length === completed.length;
@@ -15,11 +24,10 @@ const Header = ({ toggleAll, addTodo, todos }) => {
               className={style['header__toggle-all']}
               type="checkbox"
               checked={stateBtn}
-            />
-            <label
-              htmlFor="toggle-all"
-              className={style.header__label}
               onMouseDown={() => toggleAll()}
+            />
+            <div
+              className={style.header__label}
             />
           </div>
         );
@@ -32,14 +40,7 @@ const Header = ({ toggleAll, addTodo, todos }) => {
         placeholder="What needs to be done?"
         defaultValue=""
         autoFocus
-        onKeyDown={(e) => {
-          const enterKey = 13;
-          if ((e.target.value.trim() !== '')
-          && (e.which === enterKey || e.keyCode === enterKey)) {
-            addTodo(e.target.value);
-            e.target.value = '';
-          }
-        }}
+        onKeyDown={e => addTask(e, addTodo)}
       />
     </header>
   );

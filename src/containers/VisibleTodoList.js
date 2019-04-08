@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Main from 'Components/Main/Main';
-import { VisibilityFilters } from 'actions/footer';
+import { VisibilityFilters } from 'const';
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
