@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from 'Components/Header/Header';
 import Main from 'Components/Main/Main';
 import Footer from 'Components/Footer/Footer';
@@ -43,5 +44,61 @@ const App = ({
 );
 export default App;
 App.propTypes = {
+  addTask: PropTypes.func,
+  toggleAll: PropTypes.func,
+  addTodo: PropTypes.func,
+  all: PropTypes.number,
+  active: PropTypes.number,
+  completed: PropTypes.number,
+  clearCompleted: PropTypes.func,
+  editButtonStates: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ),
+  blurDelEditInput: PropTypes.func,
+  keysDelEditInput: PropTypes.func,
+  toggleTodo: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  deleteEditInput: PropTypes.func,
+  changeValue: PropTypes.func,
+  addEditInput: PropTypes.func,
+  visibleTodoList: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+      checked: PropTypes.bool,
+    }),
+  ),
+};
 
+App.defaultProps = {
+  addTask: PropTypes.func,
+  toggleAll: PropTypes.func,
+  addTodo: PropTypes.func,
+  all: PropTypes.number,
+  active: PropTypes.number,
+  completed: PropTypes.number,
+  clearCompleted: PropTypes.func,
+  editButtonStates: PropTypes.objectOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+    }),
+  ),
+  blurDelEditInput: PropTypes.func,
+  keysDelEditInput: PropTypes.func,
+  toggleTodo: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  deleteEditInput: PropTypes.func,
+  changeValue: PropTypes.func,
+  addEditInput: PropTypes.func,
+  visibleTodoList: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      id: PropTypes.string,
+      checked: PropTypes.bool,
+    }),
+  ),
 };
