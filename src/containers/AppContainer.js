@@ -46,6 +46,10 @@ export const keysDelEditInput = (e, task, changeValue, deleteEditInput, deleteTo
     deleteEditInput(task.id);
   }
 };
+const searchFilter = (todos, searchField) => {
+  const filteredList = todos.filter(task => task.text.includes(searchField));
+  return filteredList;
+};
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(actions, dispatch),
@@ -55,8 +59,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  todos: state.todos,
-  visibleTodoList: getVisibleTodos(state.todos, state.visibilityFilter),
+  visibleTodoList: getVisibleTodos(
+    searchFilter(state.todos, state.searchField), state.visibilityFilter,
+  ),
   editButtonStates: state.editButtonStates,
   all: state.todos.length,
   active: state.todos.filter(task => !task.checked).length,

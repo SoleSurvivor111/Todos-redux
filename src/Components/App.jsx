@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import Header from 'Components/Header/Header';
 import Main from 'Components/Main/Main';
 import Footer from 'Components/Footer/Footer';
+import SearchForm from 'Components/Footer/Search-form';
 import style from 'Components/App.module.scss';
 
 const App = ({
   toggleAll, addTodo, addTask, visibleTodoList, editButtonStates,
   blurDelEditInput, keysDelEditInput, toggleTodo, deleteTodo, deleteEditInput,
-  changeValue, addEditInput, all, active, completed, clearCompleted,
+  changeValue, addEditInput, all, active, completed, clearCompleted, findTodo,
 }) => (
   <div className="container">
     <div className={style['todos-logo']}>
@@ -18,6 +19,7 @@ const App = ({
       <Header
         all={all}
         completed={completed}
+        findTodo={findTodo}
         toggleAll={toggleAll}
         addTodo={addTodo}
         addTask={addTask}
@@ -32,6 +34,9 @@ const App = ({
         addEditInput={addEditInput}
         deleteEditInput={deleteEditInput}
         changeValue={changeValue}
+      />
+      <SearchForm
+        findTodo={findTodo}
       />
       <Footer
         all={all}
@@ -62,6 +67,7 @@ App.propTypes = {
   toggleTodo: PropTypes.func,
   deleteTodo: PropTypes.func,
   deleteEditInput: PropTypes.func,
+  findTodo: PropTypes.func,
   changeValue: PropTypes.func,
   addEditInput: PropTypes.func,
   visibleTodoList: PropTypes.arrayOf(
@@ -92,6 +98,7 @@ App.defaultProps = {
   toggleTodo: PropTypes.func,
   deleteTodo: PropTypes.func,
   deleteEditInput: PropTypes.func,
+  findTodo: PropTypes.func,
   changeValue: PropTypes.func,
   addEditInput: PropTypes.func,
   visibleTodoList: PropTypes.arrayOf(

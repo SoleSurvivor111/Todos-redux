@@ -10,3 +10,8 @@ export const addTodo = text => ({
 export const toggleAll = () => ({
   type: 'TOGGLE_ALL',
 });
+
+export const findTodo = text => ({
+  type: 'FIND_TODO',
+  text,
+});
