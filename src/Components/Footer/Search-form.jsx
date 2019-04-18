@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'Components/Footer/Search-form.module.scss';
 
-const SearchForm = ({ findTodo }) => (
+const SearchForm = ({ onFindTodo }) => (
   <div className={style['search-form']}>
     <input
       type="text"
       className={style['search-field']}
       placeholder="type to search"
-      onChange={e => findTodo(e.target.value)}
+      onChange={onFindTodo}
     />
     <div
       className={style['search-icon']}
@@ -16,6 +16,7 @@ const SearchForm = ({ findTodo }) => (
   </div>
 );
 export default SearchForm;
+
 SearchForm.propTypes = {
-  findTodo: PropTypes.func.isRequired,
+  onFindTodo: PropTypes.func.isRequired,
 };

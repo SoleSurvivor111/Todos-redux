@@ -4,17 +4,17 @@ import Filters from 'Components/Footer/Filters/Filters';
 import style from 'Components/Footer/Footer.module.scss';
 
 const Footer = ({
-  all, active, completed, clearCompleted,
+  all, active, completed, onClearCompleted,
 }) => {
   const theNumberOfActiveTasks = active === 1
     ? '1 item left' : `${active} items left`;
 
-  const clearCompletedBtn = (completed !== 0)
+  const onClearCompletedBtn = (completed !== 0)
     && (
     <button
       type="button"
       className={style['footer__clear-completed']}
-      onClick={() => clearCompleted()}
+      onClick={onClearCompleted}
     >
     Clear completed
     </button>
@@ -25,7 +25,7 @@ const Footer = ({
         {theNumberOfActiveTasks}
       </span>
       <Filters />
-      {clearCompletedBtn}
+      {onClearCompletedBtn}
     </footer>
   );
   return footer;
@@ -34,7 +34,7 @@ const Footer = ({
 export default Footer;
 
 Footer.propTypes = {
-  clearCompleted: PropTypes.func.isRequired,
+  onClearCompleted: PropTypes.func.isRequired,
   all: PropTypes.number.isRequired,
   active: PropTypes.number.isRequired,
   completed: PropTypes.number.isRequired,

@@ -19,30 +19,30 @@ const App = ({
       <Header
         all={all}
         completed={completed}
-        findTodo={findTodo}
-        toggleAll={toggleAll}
-        addTodo={addTodo}
-        addTask={addTask}
+        onFindTodo={findTodo}
+        onToggleAll={toggleAll}
+        onAddTodo={addTodo}
+        onAddTask={addTask}
       />
       <Main
         visibleTodoList={visibleTodoList}
         editButtonStates={editButtonStates}
-        blurDelEditInput={blurDelEditInput}
-        keysDelEditInput={keysDelEditInput}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}
-        addEditInput={addEditInput}
-        deleteEditInput={deleteEditInput}
-        changeValue={changeValue}
+        onBlurDelEditInput={blurDelEditInput}
+        onKeysDelEditInput={keysDelEditInput}
+        onToggleTodo={toggleTodo}
+        onDeleteTodo={deleteTodo}
+        onAddEditInput={addEditInput}
+        onDeleteEditInput={deleteEditInput}
+        onChangeValue={changeValue}
       />
       <SearchForm
-        findTodo={findTodo}
+        onFindTodo={findTodo}
       />
       <Footer
         all={all}
         active={active}
         completed={completed}
-        clearCompleted={clearCompleted}
+        onClearCompleted={clearCompleted}
       />
     </section>
   </div>
@@ -80,9 +80,9 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  addTask: PropTypes.func,
-  toggleAll: PropTypes.func,
-  addTodo: PropTypes.func,
+  addTask: () => {},
+  toggleAll: () => {},
+  addTodo: () => {},
   all: PropTypes.number,
   active: PropTypes.number,
   completed: PropTypes.number,
@@ -93,18 +93,18 @@ App.defaultProps = {
       id: PropTypes.string,
     }),
   ),
-  blurDelEditInput: PropTypes.func,
-  keysDelEditInput: PropTypes.func,
-  toggleTodo: PropTypes.func,
-  deleteTodo: PropTypes.func,
-  deleteEditInput: PropTypes.func,
-  findTodo: PropTypes.func,
-  changeValue: PropTypes.func,
-  addEditInput: PropTypes.func,
+  blurDelEditInput: () => {},
+  keysDelEditInput: () => {},
+  toggleTodo: () => {},
+  deleteTodo: () => {},
+  deleteEditInput: () => {},
+  findTodo: () => {},
+  changeValue: () => {},
+  addEditInput: () => {},
   visibleTodoList: PropTypes.arrayOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
+      text: '',
+      id: '',
       checked: PropTypes.bool,
     }),
   ),

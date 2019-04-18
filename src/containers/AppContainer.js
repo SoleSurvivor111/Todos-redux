@@ -2,12 +2,11 @@ import App from 'Components/App';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import actions from 'actions';
-import { VisibilityFilters } from 'const';
+import { VisibilityFilters, ENTER_KEY, ESCAPE_KEY } from 'const';
 
 const addTask = (e, addTodo) => {
-  const enterKey = 13;
   if ((e.target.value.trim() !== '')
-  && (e.which === enterKey || e.keyCode === enterKey)) {
+  && (e.which === ENTER_KEY || e.keyCode === ENTER_KEY)) {
     addTodo(e.target.value);
     e.target.value = '';
   }
@@ -31,8 +30,7 @@ export const blurDelEditInput = (e, task, changeValue, deleteEditInput) => {
   deleteEditInput(task.id);
 };
 
-const ENTER_KEY = 13;
-const ESCAPE_KEY = 27;
+
 export const keysDelEditInput = (e, task, changeValue, deleteEditInput, deleteTodo) => {
   if (e.which === ENTER_KEY
     || e.keyCode === ENTER_KEY) {

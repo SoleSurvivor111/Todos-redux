@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import style from 'Components/Header/Header.module.scss';
 
 const Header = ({
-  toggleAll, addTodo, addTask, all, completed,
+  onToggleAll, onAddTodo, onAddTask, all, completed,
 }) => {
   const toggleAllBtn = all !== 0
         && (
@@ -13,7 +13,7 @@ const Header = ({
               className={style['header__toggle-all']}
               type="checkbox"
               checked={all === completed}
-              onMouseDown={() => toggleAll()}
+              onMouseDown={onToggleAll}
             />
             <div
               className={style.header__label}
@@ -29,7 +29,7 @@ const Header = ({
         placeholder="What needs to be done?"
         defaultValue=""
         autoFocus
-        onKeyDown={e => addTask(e, addTodo)}
+        onKeyDown={e => onAddTask(e, onAddTodo)}
       />
     </header>
   );
@@ -38,9 +38,9 @@ const Header = ({
 export default Header;
 
 Header.propTypes = {
-  addTask: PropTypes.func.isRequired,
-  toggleAll: PropTypes.func.isRequired,
-  addTodo: PropTypes.func.isRequired,
+  onAddTask: PropTypes.func.isRequired,
+  onToggleAll: PropTypes.func.isRequired,
+  onAddTodo: PropTypes.func.isRequired,
   all: PropTypes.number.isRequired,
   completed: PropTypes.number.isRequired,
 };

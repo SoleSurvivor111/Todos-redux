@@ -11,7 +11,7 @@ export const toggleAll = () => ({
   type: 'TOGGLE_ALL',
 });
 
-export const findTodo = text => ({
+export const findTodo = e => ({
   type: 'FIND_TODO',
-  text,
+  text: e.target.value,
 });

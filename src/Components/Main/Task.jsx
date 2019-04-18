@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import style from 'containers/Task.module.scss';
 
 const Task = ({
-  task, toggleTodo, deleteTodo, addEditInput, editButtonStates, deleteEditInput,
-  changeValue, blurDelEditInput, keysDelEditInput,
+  task, onToggleTodo, onDeleteTodo, onAddEditInput, editButtonStates, onDeleteEditInput,
+  onChangeValue, onBlurDelEditInput, onKeysDelEditInput,
 }) => {
   const currentTask = editButtonStates.id === task.id;
   const checkboxClass = currentTask
@@ -20,8 +20,8 @@ const Task = ({
       type="textarea"
       className={style.view__edit}
       autoFocus
-      onBlur={e => blurDelEditInput(e, task, changeValue, deleteEditInput)}
-      onKeyDown={e => keysDelEditInput(e, task, changeValue, deleteEditInput, deleteTodo)}
+      onBlur={e => onBlurDelEditInput(e, task, onChangeValue, onDeleteEditInput)}
+      onKeyDown={e => onKeysDelEditInput(e, task, onChangeValue, onDeleteEditInput, onDeleteTodo)}
       defaultValue={task.text}
     />
   );
@@ -31,20 +31,20 @@ const Task = ({
         <input
           className={checkboxClass}
           type="checkbox"
-          onMouseDown={() => toggleTodo(task.id)}
+          onMouseDown={() => onToggleTodo(task.id)}
           checked={task.checked}
         />
         <div className={lableClass} />
         <div
           className={style.view__lable}
-          onDoubleClick={() => addEditInput(task.id, task.text)}
+          onDoubleClick={() => onAddEditInput(task.id, task.text)}
         >
           {task.text}
         </div>
         <button
           type="button"
           className={style.view__destroy}
-          onMouseDown={() => deleteTodo(task.id)}
+          onMouseDown={() => onDeleteTodo(task.id)}
         />
         {editButton}
       </div>
@@ -61,19 +61,19 @@ Task.propTypes = {
       checked: PropTypes.bool,
     }),
   ),
-  toggleTodo: PropTypes.func,
-  blurDelEditInput: PropTypes.func,
-  keysDelEditInput: PropTypes.func,
-  deleteTodo: PropTypes.func,
-  addEditInput: PropTypes.func,
+  onToggleTodo: PropTypes.func,
+  onBlurDelEditInput: PropTypes.func,
+  onKeysDelEditInput: PropTypes.func,
+  onDeleteTodo: PropTypes.func,
+  onAddEditInput: PropTypes.func,
   editButtonStates: PropTypes.objectOf(
     PropTypes.shape({
       text: PropTypes.string,
       id: PropTypes.string,
     }),
   ),
-  deleteEditInput: PropTypes.func,
-  changeValue: PropTypes.func,
+  onDeleteEditInput: PropTypes.func,
+  onChangeValue: PropTypes.func,
 };
 
 Task.defaultProps = {
@@ -84,17 +84,17 @@ Task.defaultProps = {
       checked: PropTypes.bool,
     }),
   ),
-  toggleTodo: PropTypes.func,
-  blurDelEditInput: PropTypes.func,
-  keysDelEditInput: PropTypes.func,
-  deleteTodo: PropTypes.func,
-  addEditInput: PropTypes.func,
+  onToggleTodo: PropTypes.func,
+  onBlurDelEditInput: PropTypes.func,
+  onKeysDelEditInput: PropTypes.func,
+  onDeleteTodo: PropTypes.func,
+  onAddEditInput: PropTypes.func,
   editButtonStates: PropTypes.objectOf(
     PropTypes.shape({
       text: PropTypes.string,
       id: PropTypes.string,
     }),
   ),
-  deleteEditInput: PropTypes.func,
-  changeValue: PropTypes.func,
+  onDeleteEditInput: PropTypes.func,
+  onChangeValue: PropTypes.func,
 };
