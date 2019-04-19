@@ -3,8 +3,8 @@ import ListTask from 'Components/Main/Task';
 import PropTypes from 'prop-types';
 
 const Main = ({
-  visibleTodoList, editButtonStates, onBlurDelEditInput, onKeysDelEditInput, onToggleTodo,
-  onDeleteTodo, onAddEditInput, onDeleteEditInput, onChangeValue,
+  visibleTodoList, editButtonStates, onBlurDelEditInput, onKeysDelEditInput,
+  onToggleTodo, onDeleteTodo, onAddEditInput, onDeleteEditInput, onChangeValue,
 }) => (
   <section className="main">
     <ul className="todo-list">
@@ -30,45 +30,22 @@ export default Main;
 Main.propTypes = {
   editButtonStates: PropTypes.objectOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
+      text: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ),
-  onBlurDelEditInput: PropTypes.func,
-  onKeysDelEditInput: PropTypes.func,
-  onToggleTodo: PropTypes.func,
-  onDeleteTodo: PropTypes.func,
-  onDeleteEditInput: PropTypes.func,
-  onChangeValue: PropTypes.func,
-  onAddEditInput: PropTypes.func,
+  onBlurDelEditInput: PropTypes.func.isRequired,
+  onKeysDelEditInput: PropTypes.func.isRequired,
+  onToggleTodo: PropTypes.func.isRequired,
+  onDeleteTodo: PropTypes.func.isRequired,
+  onDeleteEditInput: PropTypes.func.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
+  onAddEditInput: PropTypes.func.isRequired,
   visibleTodoList: PropTypes.arrayOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-      checked: PropTypes.bool,
-    }),
-  ),
-};
-
-Main.defaultProps = {
-  editButtonStates: PropTypes.objectOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-    }),
-  ),
-  onBlurDelEditInput: PropTypes.func,
-  onKeysDelEditInput: PropTypes.func,
-  onToggleTodo: PropTypes.func,
-  onDeleteTodo: PropTypes.func,
-  onDeleteEditInput: PropTypes.func,
-  onAddEditInput: PropTypes.func,
-  onChangeValue: PropTypes.func,
-  visibleTodoList: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-      checked: PropTypes.bool,
+      text: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      checked: PropTypes.bool.isRequired,
     }),
   ),
 };

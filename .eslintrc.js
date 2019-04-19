@@ -19,7 +19,8 @@ module.exports = {
         "react"
     ],
     "rules": {
-      "jsx-a11y/no-autofocus": false
+      "jsx-a11y/no-autofocus": false,
+      "react/require-default-props": 0,
     },
   "settings": {
     "import/resolver": {

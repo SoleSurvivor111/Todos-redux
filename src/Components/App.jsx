@@ -49,63 +49,32 @@ const App = ({
 );
 export default App;
 App.propTypes = {
-  addTask: PropTypes.func,
-  toggleAll: PropTypes.func,
-  addTodo: PropTypes.func,
-  all: PropTypes.number,
-  active: PropTypes.number,
-  completed: PropTypes.number,
-  clearCompleted: PropTypes.func,
+  addTask: PropTypes.func.isRequired,
+  toggleAll: PropTypes.func.isRequired,
+  addTodo: PropTypes.func.isRequired,
+  all: PropTypes.number.isRequired,
+  active: PropTypes.number.isRequired,
+  completed: PropTypes.number.isRequired,
+  clearCompleted: PropTypes.func.isRequired,
   editButtonStates: PropTypes.objectOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
+      text: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ),
-  blurDelEditInput: PropTypes.func,
-  keysDelEditInput: PropTypes.func,
-  toggleTodo: PropTypes.func,
-  deleteTodo: PropTypes.func,
-  deleteEditInput: PropTypes.func,
-  findTodo: PropTypes.func,
-  changeValue: PropTypes.func,
-  addEditInput: PropTypes.func,
+  blurDelEditInput: PropTypes.func.isRequired,
+  keysDelEditInput: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  deleteEditInput: PropTypes.func.isRequired,
+  findTodo: PropTypes.func.isRequired,
+  changeValue: PropTypes.func.isRequired,
+  addEditInput: PropTypes.func.isRequired,
   visibleTodoList: PropTypes.arrayOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-      checked: PropTypes.bool,
-    }),
-  ),
-};
-
-App.defaultProps = {
-  addTask: () => {},
-  toggleAll: () => {},
-  addTodo: () => {},
-  all: PropTypes.number,
-  active: PropTypes.number,
-  completed: PropTypes.number,
-  clearCompleted: PropTypes.func,
-  editButtonStates: PropTypes.objectOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-    }),
-  ),
-  blurDelEditInput: () => {},
-  keysDelEditInput: () => {},
-  toggleTodo: () => {},
-  deleteTodo: () => {},
-  deleteEditInput: () => {},
-  findTodo: () => {},
-  changeValue: () => {},
-  addEditInput: () => {},
-  visibleTodoList: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: '',
-      id: '',
-      checked: PropTypes.bool,
+      text: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      checked: PropTypes.bool.isRequired,
     }),
   ),
 };

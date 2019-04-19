@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  setFilter: () => dispatch(setVisibilityFilter(ownProps.filter)),
+  onSetFilter: () => dispatch(setVisibilityFilter(ownProps.filter)),
 });
 
 export default connect(

@@ -56,45 +56,22 @@ export default Task;
 Task.propTypes = {
   task: PropTypes.objectOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-      checked: PropTypes.bool,
+      text: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      checked: PropTypes.bool.isRequired,
     }),
   ),
-  onToggleTodo: PropTypes.func,
-  onBlurDelEditInput: PropTypes.func,
-  onKeysDelEditInput: PropTypes.func,
-  onDeleteTodo: PropTypes.func,
-  onAddEditInput: PropTypes.func,
+  onToggleTodo: PropTypes.func.isRequired,
+  onBlurDelEditInput: PropTypes.func.isRequired,
+  onKeysDelEditInput: PropTypes.func.isRequired,
+  onDeleteTodo: PropTypes.func.isRequired,
+  onAddEditInput: PropTypes.func.isRequired,
   editButtonStates: PropTypes.objectOf(
     PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
+      text: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
     }),
   ),
-  onDeleteEditInput: PropTypes.func,
-  onChangeValue: PropTypes.func,
-};
-
-Task.defaultProps = {
-  task: PropTypes.objectOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-      checked: PropTypes.bool,
-    }),
-  ),
-  onToggleTodo: PropTypes.func,
-  onBlurDelEditInput: PropTypes.func,
-  onKeysDelEditInput: PropTypes.func,
-  onDeleteTodo: PropTypes.func,
-  onAddEditInput: PropTypes.func,
-  editButtonStates: PropTypes.objectOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      id: PropTypes.string,
-    }),
-  ),
-  onDeleteEditInput: PropTypes.func,
-  onChangeValue: PropTypes.func,
+  onDeleteEditInput: PropTypes.func.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
 };

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'Components/Footer/Filters/Filters.module.scss';
 
-const Link = ({ children, active, setFilter }) => (
+const Link = ({ children, active, onSetFilter }) => (
   <li className={style.li} key={33}>
     <a
       href="#/"
       className={active ? style.highlight : ''}
-      onMouseDown={setFilter}
+      onMouseDown={onSetFilter}
     >
       {children}
     </a>
@@ -18,5 +18,5 @@ export default Link;
 Link.propTypes = {
   children: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
-  setFilter: PropTypes.func.isRequired,
+  onSetFilter: PropTypes.func.isRequired,
 };
