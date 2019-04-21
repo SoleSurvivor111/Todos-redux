@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'Components/Footer/Filters/Filters.module.scss';
 
-const Link = ({ children, active, onSetFilter }) => (
+const Link = ({
+  children,
+  active,
+  onSetFilter,
+}) => (
   <li className={style.li} key={33}>
     <a
       href="#/"

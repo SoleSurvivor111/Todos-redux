@@ -7,9 +7,23 @@ import SearchForm from 'Components/Footer/Search-form';
 import style from 'Components/App.module.scss';
 
 const App = ({
-  toggleAll, addTodo, addTask, visibleTodoList, editButtonStates,
-  blurDelEditInput, keysDelEditInput, toggleTodo, deleteTodo, deleteEditInput,
-  changeValue, addEditInput, all, active, completed, clearCompleted, findTodo,
+  toggleAll,
+  addTodo,
+  addTask,
+  visibleTodoList,
+  editButtonStates,
+  blurDelEditInput,
+  keysDelEditInput,
+  toggleTodo,
+  deleteTodo,
+  deleteEditInput,
+  changeValue,
+  addEditInput,
+  all,
+  active,
+  completed,
+  clearCompleted,
+  findTodo,
 }) => (
   <div className="container">
     <div className={style['todos-logo']}>
@@ -56,12 +70,10 @@ App.propTypes = {
   active: PropTypes.number.isRequired,
   completed: PropTypes.number.isRequired,
   clearCompleted: PropTypes.func.isRequired,
-  editButtonStates: PropTypes.objectOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    }),
-  ),
+  editButtonStates: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
   blurDelEditInput: PropTypes.func.isRequired,
   keysDelEditInput: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,

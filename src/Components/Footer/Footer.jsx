@@ -4,7 +4,10 @@ import Filters from 'Components/Footer/Filters/Filters';
 import style from 'Components/Footer/Footer.module.scss';
 
 const Footer = ({
-  all, active, completed, onClearCompleted,
+  all,
+  active,
+  completed,
+  onClearCompleted,
 }) => {
   const theNumberOfActiveTasks = active === 1
     ? '1 item left' : `${active} items left`;

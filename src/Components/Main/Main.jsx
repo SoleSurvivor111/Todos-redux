@@ -3,8 +3,15 @@ import ListTask from 'Components/Main/Task';
 import PropTypes from 'prop-types';
 
 const Main = ({
-  visibleTodoList, editButtonStates, onBlurDelEditInput, onKeysDelEditInput,
-  onToggleTodo, onDeleteTodo, onAddEditInput, onDeleteEditInput, onChangeValue,
+  visibleTodoList,
+  editButtonStates,
+  onBlurDelEditInput,
+  onKeysDelEditInput,
+  onToggleTodo,
+  onDeleteTodo,
+  onAddEditInput,
+  onDeleteEditInput,
+  onChangeValue,
 }) => (
   <section className="main">
     <ul className="todo-list">
@@ -28,12 +35,10 @@ const Main = ({
 export default Main;
 
 Main.propTypes = {
-  editButtonStates: PropTypes.objectOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    }),
-  ),
+  editButtonStates: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }),
   onBlurDelEditInput: PropTypes.func.isRequired,
   onKeysDelEditInput: PropTypes.func.isRequired,
   onToggleTodo: PropTypes.func.isRequired,

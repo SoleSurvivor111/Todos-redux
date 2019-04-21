@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import style from 'Components/Header/Header.module.scss';
 
 const Header = ({
-  onToggleAll, onAddTodo, onAddTask, all, completed,
+  onToggleAll,
+  onAddTodo,
+  onAddTask,
+  all,
+  completed,
 }) => {
   const toggleAllBtn = all !== 0
         && (
