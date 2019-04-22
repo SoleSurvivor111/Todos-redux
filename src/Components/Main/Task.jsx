@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import style from 'containers/Task.module.scss';
+import { ENTER_KEY, ESCAPE_KEY } from 'const';
 
 class Task extends Component {
   handleBlur = (e) => {
@@ -8,9 +9,9 @@ class Task extends Component {
       task,
       onDeleteEditInput,
       onChangeValue,
-      onBlurDelEditInput,
     } = this.props;
-    onBlurDelEditInput(e, task, onChangeValue, onDeleteEditInput);
+    onChangeValue(task.id, e.target.value);
+    onDeleteEditInput(task.id);
   }
 
   handleKeyDown = (e) => {
@@ -19,9 +20,18 @@ class Task extends Component {
       onDeleteTodo,
       onDeleteEditInput,
       onChangeValue,
-      onKeysDelEditInput,
     } = this.props;
-    onKeysDelEditInput(e, task, onChangeValue, onDeleteEditInput, onDeleteTodo);
+    if (e.which === ENTER_KEY
+        || e.keyCode === ENTER_KEY) {
+      if (e.target.value.trim() === '') {
+        onDeleteTodo(task.id);
+        return;
+      }
+      onChangeValue(task.id, e.target.value);
+      onDeleteEditInput(task.id);
+    } else if (e.which === ESCAPE_KEY) {
+      onDeleteEditInput(task.id);
+    }
   }
 
   handleToggleTodo = () => {
@@ -101,8 +111,6 @@ Task.propTypes = {
   }),
 
   onToggleTodo: PropTypes.func.isRequired,
-  onBlurDelEditInput: PropTypes.func.isRequired,
-  onKeysDelEditInput: PropTypes.func.isRequired,
   onDeleteTodo: PropTypes.func.isRequired,
   onAddEditInput: PropTypes.func.isRequired,
   editButtonStates: PropTypes.shape({

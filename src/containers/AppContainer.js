@@ -2,15 +2,7 @@ import App from 'Components/App';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import actions from 'actions';
-import { VisibilityFilters, ENTER_KEY, ESCAPE_KEY } from 'const';
-
-const addTask = (e, addTodo) => {
-  if ((e.target.value.trim() !== '')
-  && (e.which === ENTER_KEY || e.keyCode === ENTER_KEY)) {
-    addTodo(e.target.value);
-    e.target.value = '';
-  }
-};
+import { VisibilityFilters, ENTER_KEY } from 'const';
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -25,25 +17,6 @@ const getVisibleTodos = (todos, filter) => {
   }
 };
 
-export const blurDelEditInput = (e, task, changeValue, deleteEditInput) => {
-  changeValue(task.id, e.target.value);
-  deleteEditInput(task.id);
-};
-
-
-export const keysDelEditInput = (e, task, changeValue, deleteEditInput, deleteTodo) => {
-  if (e.which === ENTER_KEY
-    || e.keyCode === ENTER_KEY) {
-    if (e.target.value.trim() === '') {
-      deleteTodo(task.id);
-      return;
-    }
-    changeValue(task.id, e.target.value);
-    deleteEditInput(task.id);
-  } else if (e.which === ESCAPE_KEY) {
-    deleteEditInput(task.id);
-  }
-};
 const searchFilter = (todos, searchField) => {
   const filteredList = todos.filter(task => task.text.includes(searchField));
   return filteredList;
@@ -52,8 +25,6 @@ const searchFilter = (todos, searchField) => {
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(actions, dispatch),
   addTask,
-  blurDelEditInput,
-  keysDelEditInput,
 });
 
 const mapStateToProps = state => ({

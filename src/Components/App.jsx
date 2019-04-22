@@ -9,11 +9,8 @@ import style from 'Components/App.module.scss';
 const App = ({
   toggleAll,
   addTodo,
-  addTask,
   visibleTodoList,
   editButtonStates,
-  blurDelEditInput,
-  keysDelEditInput,
   toggleTodo,
   deleteTodo,
   deleteEditInput,
@@ -33,16 +30,12 @@ const App = ({
       <Header
         all={all}
         completed={completed}
-        onFindTodo={findTodo}
         onToggleAll={toggleAll}
         onAddTodo={addTodo}
-        onAddTask={addTask}
       />
       <Main
         visibleTodoList={visibleTodoList}
         editButtonStates={editButtonStates}
-        onBlurDelEditInput={blurDelEditInput}
-        onKeysDelEditInput={keysDelEditInput}
         onToggleTodo={toggleTodo}
         onDeleteTodo={deleteTodo}
         onAddEditInput={addEditInput}
@@ -63,7 +56,6 @@ const App = ({
 );
 export default App;
 App.propTypes = {
-  addTask: PropTypes.func.isRequired,
   toggleAll: PropTypes.func.isRequired,
   addTodo: PropTypes.func.isRequired,
   all: PropTypes.number.isRequired,
@@ -74,8 +66,6 @@ App.propTypes = {
     text: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   }),
-  blurDelEditInput: PropTypes.func.isRequired,
-  keysDelEditInput: PropTypes.func.isRequired,
   toggleTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   deleteEditInput: PropTypes.func.isRequired,

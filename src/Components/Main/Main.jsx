@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 const Main = ({
   visibleTodoList,
   editButtonStates,
-  onBlurDelEditInput,
-  onKeysDelEditInput,
   onToggleTodo,
   onDeleteTodo,
   onAddEditInput,
@@ -20,8 +18,6 @@ const Main = ({
           key={task.id}
           task={task}
           editButtonStates={editButtonStates}
-          onBlurDelEditInput={onBlurDelEditInput}
-          onKeysDelEditInput={onKeysDelEditInput}
           onToggleTodo={onToggleTodo}
           onDeleteTodo={onDeleteTodo}
           onAddEditInput={onAddEditInput}
@@ -39,8 +35,6 @@ Main.propTypes = {
     text: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   }),
-  onBlurDelEditInput: PropTypes.func.isRequired,
-  onKeysDelEditInput: PropTypes.func.isRequired,
   onToggleTodo: PropTypes.func.isRequired,
   onDeleteTodo: PropTypes.func.isRequired,
   onDeleteEditInput: PropTypes.func.isRequired,
