@@ -70,7 +70,7 @@ class Task extends Component {
         className={style.view__edit}
         autoFocus
         onBlur={this.handleBlur}
-        onKeyDown={this.handleDown}
+        onKeyDown={this.handleKeyDown}
         defaultValue={task.text}
       />
     );
@@ -86,7 +86,7 @@ class Task extends Component {
           <div className={lableClass} />
           <div
             className={style.view__lable}
-            onDoubleClick={this.onAddEditInput}
+            onDoubleClick={this.handleAddEditInput}
           >
             {task.text}
           </div>

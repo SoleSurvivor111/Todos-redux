@@ -2,7 +2,7 @@ import App from 'Components/App';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import actions from 'actions';
-import { VisibilityFilters, ENTER_KEY } from 'const';
+import { VisibilityFilters } from 'const';
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
@@ -24,7 +24,6 @@ const searchFilter = (todos, searchField) => {
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(actions, dispatch),
-  addTask,
 });
 
 const mapStateToProps = state => ({
