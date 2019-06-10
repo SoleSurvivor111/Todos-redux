@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import style from 'containers/Task.module.scss';
 import { ENTER_KEY, ESCAPE_KEY } from 'const';
+import 'csshake';
+import style from 'containers/Task.module.scss';
+import 'Components/Main/TaskAnimation.scss';
 
 class Task extends Component {
   handleBlur = (e) => {
@@ -75,7 +77,11 @@ class Task extends Component {
       />
     );
     return (
-      <li className={style.le} data-id={task.id} key={task.id}>
+      <li
+        className={style.le}
+        data-id={task.id}
+        key={task.id}
+      >
         <div className={style.view}>
           <input
             className={checkboxClass}

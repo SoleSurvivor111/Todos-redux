@@ -1,0 +1,21 @@
+.item-enter {
+  animation-name: shake-crazy;
+  animation-duration: 100ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.item-enter-active {
+  animation-play-state: stop;
+}
+
+.item-exit {
+  animation-name: shake-slow;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.item-exit-active {
+  animation-play-state: stop;
+}

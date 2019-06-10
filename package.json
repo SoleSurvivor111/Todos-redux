@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "csshake": "^1.5.3",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "node-uuid": "^1.4.8",
@@ -11,6 +12,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
+    "react-transition-group": "^4.1.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8"
   },

@@ -1,6 +1,7 @@
 import React from 'react';
-import ListTask from 'Components/Main/Task';
 import PropTypes from 'prop-types';
+import ListTask from 'Components/Main/Task';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Main = ({
   visibleTodoList,
@@ -12,20 +13,26 @@ const Main = ({
   onChangeValue,
 }) => (
   <section className="main">
-    <ul className="todo-list">
+    <TransitionGroup className="todo-list">
       {visibleTodoList.map(task => (
-        <ListTask
+        <CSSTransition
           key={task.id}
-          task={task}
-          editButtonStates={editButtonStates}
-          onToggleTodo={onToggleTodo}
-          onDeleteTodo={onDeleteTodo}
-          onAddEditInput={onAddEditInput}
-          onDeleteEditInput={onDeleteEditInput}
-          onChangeValue={onChangeValue}
-        />
+          timeout={500}
+          classNames="item"
+        >
+          <ListTask
+            key={task.id}
+            task={task}
+            editButtonStates={editButtonStates}
+            onToggleTodo={onToggleTodo}
+            onDeleteTodo={onDeleteTodo}
+            onAddEditInput={onAddEditInput}
+            onDeleteEditInput={onDeleteEditInput}
+            onChangeValue={onChangeValue}
+          />
+        </CSSTransition>
       ))}
-    </ul>
+    </TransitionGroup>
   </section>
 );
 export default Main;
